@@ -6,7 +6,7 @@
     // print groen als kleurcode = 2
    // initialisatie
 
-  $kleur = 0; // rood
+  $kleur = 20; // rood
    If ($kleur == 0) {
     // print kleur rood
   echo "stoplicht word rood";
@@ -15,7 +15,7 @@
  } elseif ($kleur == 2) {
     echo "stoplicht wordt groen";
  } else {
-    echo "ongeldige kleurcode";
+    echo "je hebt hem kapot gemaakt";
  }
 
 ?>
