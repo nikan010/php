@@ -1,21 +1,25 @@
 <?php
-$getal = 12; 
+if (!isset($_COOKIE['teller'])) {
+    // Cookie bestaat niet, initialiseer de teller en gebruikersnaam
+    $tellerValue = 0;
+    $usernameValue = "ivo";
 
-$totaleSom = 0;
+    // Zet de teller en gebruikersnaam in cookies
+    setcookie('teller', $tellerValue);
+    setcookie('username', $usernameValue);
 
-echo'waarde van variabele $geral is:';
-echo" $getal<br>";
-echo "de optelling is als volgt:<br>";
-for ($i = 1; $i <= $getal; $i++) {
-    $totaleSom += $i;
-    echo "$i";
-    if ($i < $getal) {
-        echo " + ";
-    }
+    echo "cookie bestaat NIET<br>";
+} else {
+    // Cookie bestaat, haal de tellerwaarde op en verhoog deze met 1
+    $tellerValue = $_COOKIE['teller'] + 1;
+
+    // Werk de tellerwaarde in de cookie bij
+    setcookie('teller', $tellerValue);
+
+    echo "cookie bestaat<br>";
 }
 
-echo " = $totaleSom";
-
+// Laat de tellerwaarde zien
+echo $tellerValue;
 ?>
-
 
