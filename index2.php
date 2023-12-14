@@ -7,12 +7,9 @@
 </head>
 <body>
     <h1>voorbeeld menu</h1>
-    <nav>
-        <ul>
-            <li><a href="home.php">home page</a></li>
-            <li><a href="page1.php">page 1</a></li>
-            <li><a href="page2.php">page 2</a></li>
-        </ul>
-    </nav>
+    <?php
+    include "menu.php";
+    ?>
+  
 </body>
 </html>
