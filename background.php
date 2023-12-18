@@ -3,60 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achtergrondkleur wijzigen</title>
+    <title>Document</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        form {
-            display: flex;
-            gap: 10px;
-        }
-
-        button {
-            padding: 10px;
-            cursor: pointer;
-        }
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
     </style>
 </head>
-<body <?php echo $stijl ?? ''; ?>>
+<body>
+    <form method="post">
+        <input type="radio" name="kleur" value="rood">Rood
+        <input type="radio" name="kleur" value="groen">Groen
+        <input type="radio" name="kleur" value="blauw">Blauw
+        <input type="radio" name="kleur" value="roze">Roze
+        <input type="radio" name="kleur" value="reset">Reset
+        <br>
+        <input type="submit" name="achtergrond" value="Achtergrond kleur veranderen">
+    </form>
 
-    <div>
-        <h1>Achtergrondkleur wijzigen</h1>
+<?php
+    // Auteur: Michael Davelaar
+    // Functie: Achtergrond kleur veranderen
 
-        <!-- Knoppen voor het wijzigen van de achtergrondkleur -->
-        <form>
-            <button type="button" onclick="location.href='?kleur=rood'">Rood</button>
-            <button type="button" onclick="location.href='?kleur=groen'">Groen</button>
-            <button type="button" onclick="location.href='?kleur=blauw'">Blauw</button>
-            <button type="button" onclick="location.href='?kleur=roze'">Roze</button>
-        </form>
+    // main
+ if (isset ($_POST["kleur"])) {
+    $kleur = $_POST["kleur"];
 
-        <p>Klik op een knop om de achtergrondkleur te wijzigen.</p>
-    </div>
-    <?php
-// Controleer of er een kleur is ingesteld via de URL (bijvoorbeeld '?kleur=rood')
-$gekozenKleur = isset($_GET['kleur']) ? $_GET['kleur'] : null;
+    if ($kleur == "rood") {
+        echo "<style> body{background-color:red;}</style>";
+      }  elseif ($kleur == "groen") {
+        echo "<style> body{background-color:green;}</style>";
+      } elseif ($kleur == "blauw")
+        echo "<style> body{background-color:blue;}</style>";
+        elseif ($kleur == "roze")
+        echo "<style> body{background-color:pink;}</style>";
+        elseif ($kleur == "reset")
+        echo "<style> body{background-color:white;}</style>";
+ }
 
-// Lijst met geldige kleuren
-$geldigeKleuren = ['rood', 'groen', 'blauw', 'roze'];
-
-// Controleer of de gekozen kleur geldig is
-if ($gekozenKleur && in_array($gekozenKleur, $geldigeKleuren)) {
-    // Geef de gekozen kleur door aan de HTML-stijl
-    $stijl = "style='background-color: $gekozenKleur;'";
-}
 ?>
 </body>
 </html>
