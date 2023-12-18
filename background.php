@@ -23,7 +23,7 @@
     </form>
 
 <?php
-    // Auteur: Michael Davelaar
+    // Auteur: yvan van dijk
     // Functie: Achtergrond kleur veranderen
 
     // main
